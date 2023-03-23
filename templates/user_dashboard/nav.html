@@ -1,0 +1,77 @@
+<header id="aa-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-header-area">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="aa-header-left">
+                  <div class="aa-telephone-no">
+                    <span class="fa fa-phone"></span>
+                    1-900-523-3564
+                  </div>
+                  <div class="aa-email hidden-xs">
+                    <span class="fa fa-envelope-o"></span> info@gmail.com
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                  <div class="aa-header-right">
+                    <a href="register.html" class="aa-register">Register</a>
+                    <a href="/admin_dashboard/login.html" class="aa-login">Login</a>
+                  </div>
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End header section -->
+  
+  <!-- Start menu section -->
+  <section id="aa-menu-area">
+    <nav class="navbar navbar-default main-navbar" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- LOGO -->
+          <!-- Text based logo -->
+          <a class="navbar-brand aa-logo" href="{% url 'index'%}">LO<span>GO</span></a>
+          <!-- Image based logo -->
+          <!-- <a class="navbar-brand aa-logo-img" href="index.html"><img src="img/logo.png" alt="logo"></a> -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
+            <li {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %} ><a href="{% url 'index'%}" >HOME</a></li>
+            <li class="dropdown {% if request.resolver_match.url_name == 'properties' or  request.resolver_match.url_name == 'properties_details' %}active{% endif %}"  >
+              <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'properties'%}">PROPERTIES <span
+                  class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li {% if request.resolver_match.url_name == 'properties' %}class="active"{% endif %}><a href="{% url 'properties'%}">PROPERTIES</a></li>
+                <li {% if request.resolver_match.url_name == 'properties_details' %}class="active"{% endif %}><a href="{% url 'properties_details'%}">PROPERTIES DETAIL</a></li>
+              </ul>
+            </li>
+            <li {% if request.resolver_match.url_name == 'gallery' %}class="active"{% endif %}><a href="{% url 'gallery'%}">GALLERY</a></li>
+            <li class="dropdown {% if request.resolver_match.url_name == 'blog_archive' or  request.resolver_match.url_name == 'blog_single' %}active{% endif %}">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'blog_archive'%}">BLOG <span
+                  class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li {% if request.resolver_match.url_name == 'blog_archive' %}class="active"{% endif %}><a href="{% url 'blog_archive'%}">BLOG</a></li>
+                <li {% if request.resolver_match.url_name == 'blog_single' %}class="active"{% endif %}><a href="{% url 'blog_single'%}">BLOG DETAILS</a></li>
+              </ul>
+            </li>
+            <li {% if request.resolver_match.url_name == 'contact' %}class="active"{% endif %}><a href="{% url 'contact'%}">CONTACT</a></li>
+            <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}><a href="{% url 'login' %}">LOGIN</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  </section>
