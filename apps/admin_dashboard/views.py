@@ -31,3 +31,4 @@ def property_type(request):
 
 def view_user(request):
     return render(request, 'admin_dashboard/view_user.html')
+
