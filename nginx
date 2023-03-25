@@ -1,0 +1,18 @@
+server {
+    listen 5005;
+    server_name 156.67.220.241;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        alias /home/real-estate/static/;
+        }
+    location /.well-known {
+    alias /home/real-estate/;
+}
+
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/real-estate/realestate.sock;
+    }
+}
